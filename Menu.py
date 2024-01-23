@@ -63,7 +63,7 @@ def osnovnaya():
                     i += 1
 
     class Tank:
-        def __init__(self, color, px, py, direct, keyList, rang):
+        def __init__(self, color, px, py, direct, listi, rang):
             objects.append(self)
             self.type = "tank"
             self.color = color
@@ -82,11 +82,11 @@ def osnovnaya():
             self.bulletDamage = int(result_4[0][0])
             self.shotTimer = 0
             self.shotDelay = int(result_5[0][0])
-            self.keyLEFT = keyList[0]
-            self.keyRIGHT = keyList[1]
-            self.keyUP = keyList[2]
-            self.keyDOWN = keyList[3]
-            self.keySHOT = keyList[4]
+            self.keyLEFT = listi[0]
+            self.keyRIGHT = listi[1]
+            self.keyUP = listi[2]
+            self.keyDOWN = listi[3]
+            self.keySHOT = listi[4]
             self.rang = rang
             con.close()
 
@@ -162,7 +162,7 @@ def osnovnaya():
                         if obj.type == "block":
                             sound_effect.set_volume(0.25)
                             sound_effect.play(0, 3000)
-
+                        # столкновение пули с танком
                         elif obj.type == "tank" and obj.hp > 0:
                             sound_damage.set_volume(1.25)
                             sound_damage.play()
